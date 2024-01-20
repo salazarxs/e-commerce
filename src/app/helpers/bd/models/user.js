@@ -8,10 +8,21 @@ const UserModel = db.define('USERS', {
     },
     username: {
         type: DataTypes.STRING,
-    }
+    },
+    email: {
+        type: DataTypes.STRING
+    },
+    password: {
+        type: DataTypes.STRING
+    },
+    userImage: {
+        type: DataTypes.STRING
+    },
+    userProducts: {
+        type: DataTypes.STRING
+    },
 },
     {
         tableName: 'USERS',
-        timestamps: false
     });
 export default UserModel;

@@ -1,4 +1,5 @@
 use blvwnrszit6nbqstzeyh;
+
 create table USERS(
 ID varchar(1000) primary key unique,
 email varchar(320) unique,
@@ -26,3 +27,14 @@ create table CATEGORIES(
 ID int auto_increment primary key unique,
 category varchar(100) unique
 );
+INSERT INTO CATEGORIES (category) VALUES
+('Camisetas'),
+('Pantalones'),
+('Vestidos'),
+('Chaquetas'),
+('Zapatos'),
+('Accesorios'),
+('Ropa interior'),
+('Ropa deportiva'),
+('Ropa de abrigo'),
+('Ropa de dormir');
