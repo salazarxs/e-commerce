@@ -1,12 +1,16 @@
 import * as jose from 'jose';
 
-
-const secretKey = process.env.JWT_TOKEN;
-const alg = 'HS256';
+import dotenv from 'dotenv';
+//const secretKey = process.env.JWT_TOKEN;
+dotenv.config();
 
 export const GenerateJWT = async () => {
+    const alg = 'HS256';
     const secretKey = process.env.JWT_TOKEN;
+    console.log(process.env)
+    console.log(process.env.MYSQL_DB)
     console.log(secretKey)
+
     const jwt = await new jose.SignJWT({ 'urn:example:claim': true })
         .setProtectedHeader({ alg })
         .setIssuedAt()
