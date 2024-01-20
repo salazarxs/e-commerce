@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
-import bd from '@/app/helpers/bd/bd';
+import db from '@/app/helpers/bd/bd';
 
-const ProductModel = bd.define('PRODUCTS', {
+const ProductModel = db.define('PRODUCTS', {
     productName: {
         type: DataTypes.STRING
     },

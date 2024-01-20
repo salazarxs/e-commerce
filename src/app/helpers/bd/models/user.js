@@ -1,5 +1,5 @@
-import bd from '@/app/helpers/bd/bd';
-import { DataTypes } from 'sequelize';
+import db from '@/app/helpers/bd/bd';
+import { DataTypes, Sequelize } from 'sequelize';
 
 const UserModel = db.define('USERS', {
     ID: {
@@ -20,9 +20,21 @@ const UserModel = db.define('USERS', {
     },
     userProducts: {
         type: DataTypes.STRING
+    },/* 
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false,
     },
+    updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+        allowNull: false,
+        onUpdate: Sequelize.literal('CURRENT_TIMESTAMP'),
+    }, */
 },
     {
         tableName: 'USERS',
+        timestamps: false
     });
 export default UserModel;
