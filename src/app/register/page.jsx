@@ -3,9 +3,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { GenerateJWT } from "../helpers/JWT";
+import { useRouter } from 'next/navigation';
 
 const Page = () => {
-
+    const navigate = useRouter();
     const [loading, setLoading] = useState(false);
 
 
@@ -28,6 +29,7 @@ const Page = () => {
         await axios.post('/api/v1/users', data)
             .then(data => {
                 setLoading(false);
+                navigate.push('/login')
             })
             .catch(err => {
                 console.log(err);
