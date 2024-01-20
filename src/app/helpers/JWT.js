@@ -5,7 +5,6 @@ export const GenerateJWT = async (user) => {
     const alg = 'HS256';
     const secretKey = new TextEncoder().encode(process.env.JWT_TOKEN);
 
-
     const jwt = await new jose.SignJWT({ 'user': user })
         .setProtectedHeader({ alg })
         .setIssuedAt()
@@ -15,4 +14,20 @@ export const GenerateJWT = async (user) => {
         .sign(secretKey)
 
     return jwt;
+};
+
+export const ValidateJWT = async (jwt) => {
+
+    const secretKey = new TextEncoder().encode(process.env.JWT_TOKEN);
+    try {
+        const { payload, protectedHeader } = await jose.jwtVerify(jwt, secretKey, {
+            issuer: 'urn:example:issuer',
+            audience: 'urn:example:audience',
+        })
+        return true;
+    }
+    catch (err) {
+        console.log(err)
+        return false;
+    }
 };

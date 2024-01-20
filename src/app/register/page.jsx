@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { GenerateJWT } from "../helpers/JWT";
+import { GenerateJWT, ValidateJWT } from "../helpers/JWT";
 import { useRouter } from 'next/navigation';
 
 const Page = () => {
@@ -26,7 +26,11 @@ const Page = () => {
             username,
             password
         }
-        await axios.post('/api/v1/users', data)
+        await axios.post('/api/v1/users', data, {
+            headers: {
+                JWT: GenerateJWT(username)
+            }
+        })
             .then(data => {
                 setLoading(false);
                 navigate.push('/login')
@@ -44,9 +48,7 @@ const Page = () => {
             setErrorPassword(false);
         };
     };
-    useEffect(() => {
-        GenerateJWT();
-    }, []);
+
     useEffect(() => {
         handleErrorPassword();
     }, [repeatPassword])
