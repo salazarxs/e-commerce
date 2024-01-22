@@ -75,14 +75,14 @@ const Nav = () => {
                     onClick={() => HandleNavBar()}
                 />
 
-
-            </div>
-            <div id="list-nav">
                 <MdOutlineClose
                     id='close-menu'
                     className={closeMenu ? 'active-close-menu' : ''}
                     onClick={() => HandleNavBar()}
                 />
+            </div>
+            <div id="list-nav">
+
                 <ul>
                     <li>Discovery</li>
                     <li>About</li>

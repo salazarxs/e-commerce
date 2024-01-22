@@ -1,0 +1,64 @@
+.main {
+    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    overflow-x: hidden;
+    display: flex;
+    font-family: var(--font);
+}
+
+.containerBannerHome {
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ctaBanner {
+    background-color: rgba(255, 255, 255, 0.93);
+    height: 50%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.btnCta {
+    background-color: var(--green);
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.btnCta:hover {
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .containerBannerHome {
+        background-image: url('../../public/bg-image-mobil.webp');
+        background-size: cover;
+        background-repeat: no-repeat;
+        object-position: center center;
+    }
+
+    .ctaBanner h1 {
+        font-weight: 500;
+        font-size: 9vw;
+        text-align: center;
+    }
+
+    .ctaBanner p {
+        text-align: center;
+    }
+
+    .btnCta {
+        width: 90%;
+        height: 15%;
+        border-radius: 5px;
+    }
+}
