@@ -1,13 +1,14 @@
+'use client'
 import { useParams } from "next/navigation";
 
 
-const Page = ({ id }) => {
+const Page = () => {
 
-    const params = useParams(id);
+    const params = useParams();
 
     return (
         <div>
-            {id}
+            {params.id}
         </div>
     );
 

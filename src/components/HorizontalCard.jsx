@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import '@/app/styles/HorizontalCard.css';
 
 
 import productPlaceholder from '../../public/product-placeholder.webp';
@@ -10,7 +11,9 @@ const HorizontalCard = ({ productName, price, img, productID }) => {
     const router = useRouter();
 
     return (
-        <div onClick={() => router.push(`/product/${productID}`)}>
+        <div
+            className='container-horizontal-card'
+            onClick={() => router.push(`/products/${productID}`)}>
             <div className="container-photo">
                 <Image
                     src={img ? img : productPlaceholder}
@@ -22,7 +25,7 @@ const HorizontalCard = ({ productName, price, img, productID }) => {
             </div>
             <div className="container-info-product">
                 <p>{productName}</p>
-                <p>{price}</p>
+                <p>${price}</p>
             </div>
         </div>
     );
