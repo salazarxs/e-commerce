@@ -14,7 +14,7 @@ const ProductModel = db.define('PRODUCTS', {
     price: {
         type: DataTypes.INTEGER
     },
-    reting: {
+    rating: {
         type: DataTypes.INTEGER
     },
     productImage: {
@@ -22,7 +22,8 @@ const ProductModel = db.define('PRODUCTS', {
     },
 },
     {
-        tableName: 'PRODUCTS'
+        tableName: 'PRODUCTS',
+        timestamps: false
     });
 
 export default ProductModel;

@@ -6,6 +6,7 @@
     overflow-x: hidden;
     display: flex;
     font-family: var(--font);
+    flex-direction: column;
 }
 
 .containerBannerHome {
@@ -61,4 +62,28 @@
         height: 15%;
         border-radius: 5px;
     }
+
+    .productsHome {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 10vh;
+    }
+
+    .productsHome h2 {
+        font-weight: 500;
+        font-size: 9vw;
+        text-align: center;
+        margin-bottom: 1vw;
+    }
+
+    .productsHome p {
+        color: var(--gray);
+        font-weight: 400;
+        font-size: 3.5vw;
+        text-align: center;
+    }
+
 }
