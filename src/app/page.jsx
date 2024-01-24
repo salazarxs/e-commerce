@@ -5,9 +5,11 @@ import styles from "./page.module.css";
 import HorizontalCard from "@/components/HorizontalCard";
 import { GetProducts } from "./helpers/GetProducts";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const [products, setProducts] = useState();
+  const router = useRouter();
 
   useEffect(() => {
     const limit = 4;
@@ -19,7 +21,9 @@ export default function Home() {
         <div className={styles.ctaBanner}>
           <h1>The nature candle</h1>
           <p>All handmade with natural soy wax, Candleaf is a companion for all your pleasure moments </p>
-          <button className={styles.btnCta}>Discovery our collection</button>
+          <button className={styles.btnCta}
+            onClick={() => router.push('/products')}
+          >Discovery our collection</button>
         </div>
       </div>
       <div className={styles.productsHome}>
