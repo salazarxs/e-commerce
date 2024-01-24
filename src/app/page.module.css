@@ -95,4 +95,21 @@
         padding: 6vw 0;
     }
 
+    .products .seeMoreProducts {
+        all: unset;
+        background-color: var(--green);
+        border-radius: 5px;
+        height: 5vh;
+        width: 40%;
+        text-align: center;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--white);
+        font-weight: 500;
+        font-size: 100%;
+        margin: 4vh 0;
+    }
+
 }
