@@ -1,12 +1,6 @@
-"use client"
-import { useEffect, useState } from "react";
-import styles from "../app/page.module.css";
-import HorizontalCard from "@/components/HorizontalCard";
-import { GetProducts } from "@/app/helpers/GetProducts";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 
-const Page = () => {
+
+export default function ServerSide() {
   const [products, setProducts] = useState();
   const router = useRouter();
 
@@ -50,8 +44,7 @@ const Page = () => {
               <Link
                 href={'/products'}
                 className={styles.seeMoreProducts}
-                aria-description="Link to general products page"
-              >See more products</Link>
+              >See more</Link>
             </>
             : 'Loading products...'
           }
@@ -61,5 +54,3 @@ const Page = () => {
     </main >
   );
 }
-
-export default Page;

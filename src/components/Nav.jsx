@@ -91,8 +91,8 @@ const Nav = () => {
             </div>
 
             <div className="cta-nav">
-                <Link href={'/login'} ><FaRegUser /></Link>
-                <Link href={'/cart'} ><FiShoppingCart /></Link>
+                <Link href={'/login'} aria-label='Link to login' ><FaRegUser /></Link>
+                <Link href={'/cart'} aria-label='Link to cart' ><FiShoppingCart /></Link>
 
             </div>
         </nav>
