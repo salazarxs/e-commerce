@@ -8,16 +8,19 @@ export async function GET(req: Request, context: { params }) {
   const jwt: string = headers().get("JWT");
   const validateJWT: boolean = await ValidateJWT(jwt);
 
-  type User = {
-    ID: string;
-    productName: string;
-    categoryID: number;
-    productDescription: string;
-    price: number;
-    rating: number;
-    productImage?: string;
-  };
+  //   type User = {
+  //     ID: string;
+  //     productName: string;
+  //     categoryID: number;
+  //     productDescription: string;
+  //     price: number;
+  //     rating: number;
+  //     productImage?: string;
+  //   };
 
+  // type User = {
+  //     user:UserModel
+  // }
   if (!validateJWT) {
     return NextResponse.json(
       {
