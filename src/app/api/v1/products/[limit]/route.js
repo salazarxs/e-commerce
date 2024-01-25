@@ -45,3 +45,37 @@ export async function GET(req, params) {
         }
     });
 };
+
+export async function POST(req) {
+    const jwt = req.headers.get('JWT');
+    const validateJWT = ValidateJWT(jwt);
+
+    if (!validateJWT) {
+        return NextResponse.json({
+            status: 401,
+            body: {
+                message: 'Unauthorized'
+            }
+        });
+    };
+
+    const data = await req.json();
+
+    const product = await ProductModel.create(data);
+    if (!product) {
+        return NextResponse.json({
+            status: 500,
+            body: {
+                message: 'Error to create a new product.'
+            }
+        });
+    };
+
+    return NextResponse.json({
+        status: 200,
+        body: {
+            messsage: 'Product created successful'
+        }
+    });
+
+};

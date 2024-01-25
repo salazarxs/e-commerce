@@ -13,8 +13,11 @@ export default function Home() {
 
   useEffect(() => {
     const limit = 4;
-    GetProducts(limit, setProducts);
-  }, []);
+    if (!products) {
+      GetProducts(limit, setProducts);
+    }
+
+  }, [products]);
   return (
     <main className={styles.main}>
       <div className={styles.containerBannerHome}>
