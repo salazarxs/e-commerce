@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "../app/page.module.css";
 import HorizontalCard from "@/components/HorizontalCard";
-import { GetProducts } from "@/app/helpers/GetProducts";
+import { GetProducts } from "@/app/helpers/GetProducts.ts";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 

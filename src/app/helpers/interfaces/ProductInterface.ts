@@ -1,4 +1,5 @@
 export type Product = {
+  readonly ID?: number;
   productName: string;
   categoryID: number;
   productDescription: string;

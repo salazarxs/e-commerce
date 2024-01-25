@@ -1,9 +1,8 @@
 import { ValidateJWT } from "@/app/helpers/JWT";
 import ProductModel from "@/app/helpers/bd/models/product";
 import { Product } from "@/app/helpers/interfaces/ProductInterface";
-import { collectGenerateParams } from "next/dist/build/utils";
-import { headers } from "next/headers";
 import { NextResponse } from "next/server";
+import { INTEGER } from "sequelize";
 
 export async function GET(req: Request, context: { params }) {
   const jwt: string = req.headers.get("JWT");
@@ -18,32 +17,37 @@ export async function GET(req: Request, context: { params }) {
     });
   }
 
-  const limit: number = context.params.limit;
+  const limit: string = context.params.limit;
+  const parseLimint: number = parseInt(limit);
   try {
     const Products: Product[] = await ProductModel.findAll({
-      limit: limit,
+      limit: parseLimint,
     });
     if (Products) {
-      return NextResponse.json({
-        status: 200,
-        body: {
+      return NextResponse.json(
+        {
           data: Products,
         },
-      });
+        {
+          status: 200,
+        }
+      );
     }
   } catch (err: any) {
-    return NextResponse.json({
-      status: 500,
-      body: {
+    return NextResponse.json(
+      {
         message: "Internal server error BD.",
         error: err,
       },
-    });
+      {
+        status: 500,
+      }
+    );
   }
-  return NextResponse.json({
-    status: 300,
-    body: {
+  return NextResponse.json(
+    {
       message: "Internal server error.",
     },
-  });
+    { status: 300 }
+  );
 }
